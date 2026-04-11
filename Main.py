@@ -30,9 +30,6 @@ from numpy import dot
 from numpy.linalg import norm
 
 from keras.layers import Conv2D, MaxPool2D, InputLayer, BatchNormalization, RepeatVector
-
-
-
 main = tkinter.Tk()
 main.title("Signature Recognition using Deep Learning")
 main.geometry("1300x1200")
@@ -54,7 +51,7 @@ def getLabel(name):
 def uploadDataset():
     global filename, X, Y, labels
     labels = []
-    filename = filedialog.askdirectory(initialdir = r"C:\Signature\Dataset")
+    filename = filedialog.askdirectory(initialdir = "Dataset")
     pathlabel.config(text=filename)
     text.delete('1.0', END)
     for root, dirs, directory in os.walk(filename):
