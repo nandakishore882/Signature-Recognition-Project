@@ -39,6 +39,9 @@ global accuracy, precision, recall, fscore
 global dataset
 global X, Y
 global X_train, X_test, y_train, y_test, cnn_model, labels
+X = []
+Y = []
+accuracy, precision, recall, fscore = [], [], [], []
 
 def getLabel(name):
     index = -1
@@ -51,6 +54,8 @@ def getLabel(name):
 def uploadDataset():
     global filename, X, Y, labels
     labels = []
+    X=[]
+    Y=[]
     filename = filedialog.askdirectory(initialdir = "Dataset")
     pathlabel.config(text=filename)
     text.delete('1.0', END)
