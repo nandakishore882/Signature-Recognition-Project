@@ -734,11 +734,10 @@ export default function App() {
       <style>{styles}</style>
       <div className="app">
         <div className="header">
-          <div className="header-tag">// Deep Learning · Signature Analysis</div>
+          <div className="header-tag">Deep Learning · Signature Verification</div>
           <h1>Signature<br /><span>Verification</span></h1>
           <p className="header-sub">
-            Upload a genuine reference signature and a test signature.
-            The Siamese neural network will compare them and determine authenticity.
+            Upload a genuine reference signature and a test signature. Our model will compare them and determine authenticity.
           </p>
         </div>
 
@@ -792,7 +791,7 @@ export default function App() {
         {result && (
           <div className="result-card">
             <div className="result-header">
-              <span>// Analysis Result</span>
+              <span>Analysis Result</span>
               <button className="result-header-reset" onClick={reset}>
                 ↺ New Verification
               </button>
@@ -838,7 +837,7 @@ export default function App() {
 
         {/* Contributors Section */}
         <div className="contributors">
-          <div className="contributors-label">// Built by</div>
+          <div className="contributors-label">Built by</div>
           <div className="contributors-grid">
             {CONTRIBUTORS.map((c) => (
               <div key={c.name} className="contributor-card">
