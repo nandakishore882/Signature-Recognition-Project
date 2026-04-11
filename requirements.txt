@@ -9,3 +9,5 @@ scikit-learn==0.22.2.post1
 seaborn==0.10.1
 opencv-python==4.1.1.26
 opencv-contrib-python==4.3.0.36
+flask==2.2.5
+flask-cors==5.0.0
