@@ -6,6 +6,7 @@ import tensorflow as tf
 from keras.models import Sequential, Model
 from keras.layers import Convolution2D, MaxPooling2D, Flatten, Dense
 from keras import backend as K
+import os
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
@@ -112,4 +113,5 @@ def verify():
     })
 
 if __name__ == '__main__':
-    app.run(debug=False, port=5000)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=False, host='0.0.0.0', port=port)
