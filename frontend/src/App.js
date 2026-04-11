@@ -583,18 +583,21 @@ const CONTRIBUTORS = [
     name: "Nanda Kishore",
     handle: "@nandakishore882",
     github: "https://github.com/nandakishore882",
+    linkedin: "https://www.linkedin.com/in/nandakishore882/",
     initials: "NK",
   },
   {
     name: "Anil Kumar",
     handle: "@coming-soon",
     github: "#",
+    linkedin: "#",
     initials: "AK",
   },
   {
     name: "Meher Anand",
     handle: "@coming-soon",
     github: "#",
+    linkedin: "#",
     initials: "MA",
   },
 ];
@@ -637,7 +640,7 @@ export default function App() {
       formData.append('reference', refImage);
       formData.append('test', testImage);
 
-      const res = await fetch('http://localhost:5000/verify', {
+      const res = await fetch('https://signature-recognition-api.onrender.com/verify', {
         method: 'POST',
         body: formData,
       });
@@ -838,19 +841,13 @@ export default function App() {
           <div className="contributors-label">// Built by</div>
           <div className="contributors-grid">
             {CONTRIBUTORS.map((c) => (
-              <a
-                key={c.name}
-                className="contributor-card"
-                href={c.github}
-                target="_blank"
-                rel="noreferrer"
-              >
+              <div key={c.name} className="contributor-card">
                 <div className="contributor-avatar">
                   {c.github !== '#' ? (
                     <img
-                      src={`https://github.com/${c.handle.replace('@','')}.png?size=72`}
+                      src={`https://github.com/${c.handle.replace('@', '')}.png?size=72`}
                       alt={c.name}
-                      onError={e => { e.target.style.display='none'; }}
+                      onError={e => { e.target.style.display = 'none'; }}
                     />
                   ) : null}
                   {c.initials}
@@ -859,8 +856,22 @@ export default function App() {
                   <div className="contributor-name">{c.name}</div>
                   <div className="contributor-handle">{c.handle}</div>
                 </div>
-                <span className="contributor-gh">↗</span>
-              </a>
+                <div style={{ display: 'flex', gap: '8px', flexShrink: 0 }}>
+                  {c.github !== '#' ? (
+                    <a href={c.github} target="_blank" rel="noreferrer"
+                      style={{ fontSize: '13px', color: 'var(--muted)', textDecoration: 'none', border: '1px solid var(--border)', padding: '3px 8px', borderRadius: '3px' }}
+                      title="GitHub">GH</a>
+                  ) : null}
+                  {c.linkedin !== '#' ? (
+                    <a href={c.linkedin} target="_blank" rel="noreferrer"
+                      style={{ fontSize: '13px', color: 'var(--accent2)', textDecoration: 'none', border: '1px solid var(--border)', padding: '3px 8px', borderRadius: '3px' }}
+                      title="LinkedIn">in</a>
+                  ) : null}
+                  {c.github === '#' && (
+                    <span style={{ fontSize: '11px', color: 'var(--muted)' }}>soon</span>
+                  )}
+                </div>
+              </div>
             ))}
           </div>
         </div>
